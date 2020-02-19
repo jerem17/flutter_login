@@ -506,7 +506,7 @@ class _LoginCardState extends State<_LoginCard> with TickerProviderStateMixin {
       loadingController: _loadingController,
       interval: _nameTextFieldLoadingAnimationInterval,
       labelText: messages.usernameHint,
-      prefixIcon: Icon(FontAwesomeIcons.solidUserCircle),
+      prefixIcon: Icon(FontAwesomeIcons.userAlt, color: const Color(0xFFE6197B), size: 20),
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
       onFieldSubmitted: (value) {
@@ -760,7 +760,7 @@ class _RecoverCardState extends State<_RecoverCard>
       controller: _nameController,
       width: width,
       labelText: messages.usernameHint,
-      prefixIcon: Icon(FontAwesomeIcons.solidUserCircle),
+      prefixIcon: Icon(FontAwesomeIcons.userAlt, color: const Color(0xFFE6197B)),
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.done,
       onFieldSubmitted: (value) => _submit(),

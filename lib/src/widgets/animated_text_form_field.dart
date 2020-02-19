@@ -299,7 +299,7 @@ class _AnimatedPasswordTextFormFieldState
       width: widget.animatedWidth,
       enabled: widget.enabled,
       labelText: widget.labelText,
-      prefixIcon: Icon(FontAwesomeIcons.lock, size: 20),
+      prefixIcon: Icon(FontAwesomeIcons.userLock, size: 20, color: const Color(0xFFE6197B)),
       suffixIcon: GestureDetector(
         onTap: () => setState(() => _obscureText = !_obscureText),
         dragStartBehavior: DragStartBehavior.down,
