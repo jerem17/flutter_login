@@ -6,6 +6,7 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import 'package:provider/provider.dart';
 import 'src/providers/login_theme.dart';
 import 'src/widgets/null_widget.dart';
@@ -295,11 +296,24 @@ class _FlutterLoginState extends State<FlutterLogin>
   AnimationController _logoController;
   AnimationController _titleController;
   double _selectTimeDilation = 1.0;
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+  );
+
+  Future<void> _initPackageInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-
+    _initPackageInfo();
     _loadingController = AnimationController(
       vsync: this,
       duration: loadingDuration,
@@ -587,6 +601,18 @@ class _FlutterLoginState extends State<FlutterLogin>
                       top: cardTopPosition - headerHeight - headerMargin,
                       child: _buildHeader(headerHeight, loginTheme),
                     ),
+                    Positioned(
+                      child: Text(
+                        "V " +
+                            _packageInfo.version +
+                            ' (' +
+                            _packageInfo.buildNumber +
+                            ')',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.right,
+                      ),
+                      bottom: 20,
+                    )
                   ],
                 ),
               ),

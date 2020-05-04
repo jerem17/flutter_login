@@ -16,7 +16,7 @@ dependencies:
   flushbar: ^1.9.1
   # flutter_test from sdk depends on quiver 2.0.5
   quiver: ^2.0.5
-
+  package_info: ^0.4.0+17
 dev_dependencies:
   flutter_test:
     sdk: flutter
